@@ -53,6 +53,15 @@ while E ~= 0
         if y(i) > 0
             plot(X(i,1), X(i,2), 'bo', 'LineWidth', 10); end;
     end;
+    
+    %w1*x1 + w2*x2 + b = 0
+    %x-intercept = (0, -b / w2)
+    %y-intercept = (-b / w1, 0);
+    x = -0.5:0.01:1.5;
+    m = -(b / w(2)) / (b / w(1));
+    Y = m * x + (-b / w(2));
+    plot(x,Y);
+    
     pause()
 end;
 
