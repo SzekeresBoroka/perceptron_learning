@@ -18,13 +18,14 @@ T = [0; 0; 0; 1];
 figure
 
 [N, n] = size(X);
+%lr = 0.01
 lr = 1;
-w = ones(n);
+w = randn(n,1);
+%w = ones(n);
 b = -1;
 E = 1;
-index = 1;
+index = 0;
 while E ~= 0
-%while index < 10
     E = 0;
     for i=1:N
         yi = 0;
@@ -45,9 +46,10 @@ while E ~= 0
     end;
     
     clf('reset');
+    pause(0.1)
     hold on; grid on;
     axis([-0.5 1.5 -0.5 1.5]);
-    title('Press any key to continue');
+    title('Training ');
     for i=1:N
         if y(i) == 0
             plot(X(i,1), X(i,2), 'ro', 'LineWidth', 10); end;
@@ -64,7 +66,7 @@ while E ~= 0
     plot(x,Y);
     
     index = index+1;
-    pause()
+    pause(0.5)
 end;
 
 title('The AND gate');

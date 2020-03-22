@@ -18,11 +18,13 @@ T = [0; 1; 1; 1];
 figure
 
 [N, n] = size(X);
+%lr = 0.01;
 lr = 1;
-w = zeros(n);
+%w = zeros(n);
+w = randn(n,1);
 b = 0;
 E = 1;
-index = 1;
+index = 0;
 while E ~= 0
     E = 0;
     for i=1:N
@@ -44,9 +46,10 @@ while E ~= 0
     end;
     
     clf('reset');
+    pause(0.1)
     hold on; grid on;
     axis([-0.5 1.5 -0.5 1.5]);
-    title('Press any key to continue');
+    title('Training');
     for i=1:N
         if y(i) == 0
             plot(X(i,1), X(i,2), 'ro', 'LineWidth', 10); end;
@@ -62,9 +65,10 @@ while E ~= 0
     Y = m * x + (-b / w(2));
     plot(x,Y);
     
-    pause()
+    pause(0.5)
+    index = index + 1;
 end;
-
+index
 title('The OR gate');
 
 

@@ -9,7 +9,9 @@ T = [0; 1];
 lr = 0.01;
 w = randn(N,n);
 E = 1;
+index = 0;
 while E ~= 0
+    index = index + 1;
     E = 0;
     for i=1:N
         yi = 0;
@@ -28,6 +30,6 @@ while E ~= 0
     end;
     y
 end;
-
+index
 
 
